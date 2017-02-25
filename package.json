@@ -1,0 +1,27 @@
+{
+  "name": "programming-comparison",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "analyze": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/active-expressions/programming-comparison.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/active-expressions/programming-comparison/issues"
+  },
+  "homepage": "https://github.com/active-expressions/programming-comparison#readme",
+  "dependencies": {
+    "babylon": "^6.16.1",
+    "bluebird": "^3.4.7",
+    "glob": "^7.1.1",
+    "lodash": "^4.17.4",
+    "promisify-node": "^0.4.0",
+    "sloc": "^0.2.0"
+  }
+}

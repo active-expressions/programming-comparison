@@ -1,0 +1,30 @@
+[submodule "projects/programming-signals-aexpr"]
+	path = projects/programming-signals-aexpr
+	url = https://github.com/active-expressions/programming-signals-aexpr.git
+[submodule "projects/programming-signals-plain"]
+	path = projects/programming-signals-plain
+	url = https://github.com/active-expressions/programming-signals-plain.git
+[submodule "projects/programming-constraints-plain"]
+	path = projects/programming-constraints-plain
+	url = https://github.com/active-expressions/programming-constraints-plain.git
+[submodule "projects/babel-plugin-always-constraint"]
+	path = projects/babel-plugin-always-constraint
+	url = https://github.com/active-expressions/babel-plugin-always-constraint.git
+[submodule "projects/linear-constraints"]
+	path = projects/linear-constraints
+	url = https://github.com/active-expressions/linear-constraints.git
+[submodule "projects/programming-roq-plain"]
+	path = projects/programming-roq-plain
+	url = https://github.com/active-expressions/programming-roq-plain.git
+[submodule "projects/reactive-object-queries"]
+	path = projects/reactive-object-queries
+	url = https://github.com/active-expressions/reactive-object-queries.git
+[submodule "projects/programming-contextjs-plain"]
+	path = projects/programming-contextjs-plain
+	url = https://github.com/active-expressions/programming-contextjs-plain.git
+[submodule "projects/programming-contextjs-aexpr"]
+	path = projects/programming-contextjs-aexpr
+	url = https://github.com/active-expressions/programming-contextjs-aexpr.git
+[submodule "projects/ContextJS"]
+	path = projects/ContextJS
+	url = https://github.com/LivelyKernel/ContextJS.git
