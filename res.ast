@@ -1,0 +1,101 @@
+{
+  "type": "ImportDeclaration",
+  "start": 124,
+  "end": 160,
+  "loc": {
+    "start": {
+      "line": 3,
+      "column": 0
+    },
+    "end": {
+      "line": 3,
+      "column": 36
+    }
+  },
+  "specifiers": [
+    {
+      "type": "ImportDefaultSpecifier",
+      "start": 131,
+      "end": 138,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 7
+        },
+        "end": {
+          "line": 3,
+          "column": 14
+        }
+      },
+      "local": {
+        "type": "Identifier",
+        "start": 131,
+        "end": 138,
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 7
+          },
+          "end": {
+            "line": 3,
+            "column": 14
+          },
+          "identifierName": "trigger"
+        },
+        "name": "trigger"
+      }
+    }
+  ],
+  "importKind": "value",
+  "source": {
+    "type": "Literal",
+    "start": 144,
+    "end": 159,
+    "loc": {
+      "start": {
+        "line": 3,
+        "column": 20
+      },
+      "end": {
+        "line": 3,
+        "column": 35
+      }
+    },
+    "value": "aexpr-trigger",
+    "raw": "'aexpr-trigger'"
+  },
+  "trailingComments": [
+    {
+      "type": "CommentBlock",
+      "value": "\r\n    cop.create('SelectionLayer')\r\n        .refineObject(users.timfelgentreff.jsinterpreter, {\r\n            get InterpreterVisitor() {\r\n                return SelectionInterpreterVisitor;\r\n            }\r\n        });\r\n\r\n    var PROPERTY_ACCESSOR_NAME = 'wrappedValue';\r\n    var PropertyAccessor = Object.subclass('whjfqggkewgdkewgfiuewgfeldigdk3v3m', {\r\n        constructor: function(obj, propName) {\r\n            this.selectionItems = new Set();\r\n\r\n            this.safeOldAccessors(obj, propName);\r\n\r\n            try {\r\n                obj.__defineGetter__(propName, function() {\r\n                    return this[PROPERTY_ACCESSOR_NAME];\r\n                }.bind(this));\r\n            } catch (e) { /* Firefox raises for Array.length ",
+      "start": 164,
+      "end": 902,
+      "loc": {
+        "start": {
+          "line": 5,
+          "column": 0
+        },
+        "end": {
+          "line": 24,
+          "column": 63
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": " }\r\n            var newGetter = obj.__lookupGetter__(propName);\r\n            if (!newGetter) {\r\n                // Chrome silently ignores __defineGetter__ for Array.length\r\n                this.externalVariables(solver, null);\r\n                return;\r\n            }\r\n\r\n            obj.__defineSetter__(propName, function(newValue) {\r\n                var returnValue = this[PROPERTY_ACCESSOR_NAME] = newValue;\r\n                console.log('newValue for', obj, propName, newValue);\r\n                if(!isPrimitive(newValue)) {\r\n                    this.recalculate();\r\n                }\r\n                this.applyCallbacks();\r\n                return returnValue;\r\n            }.bind(this));\r\n        },\r\n\r\n        safeOldAccessors: function(obj, propName) {\r\n            // take existing getter, if existent, and assign to\r\n            var existingSetter = obj.__lookupSetter__(propName),\r\n                existingGetter = obj.__lookupGetter__(propName);\r\n            if (existingGetter && existingSetter) {\r\n                this.__defineGetter__(PROPERTY_ACCESSOR_NAME, existingGetter);\r\n                this.__defineSetter__(PROPERTY_ACCESSOR_NAME, existingSetter);\r\n            }\r\n\r\n            // assign old value to new slot\r\n            if (!existingGetter &&\r\n                !existingSetter &&\r\n                obj.hasOwnProperty(propName)\r\n            ) {\r\n                this[PROPERTY_ACCESSOR_NAME] = obj[propName];\r\n            }\r\n        },\r\n\r\n        addCallback: function(selectionItem) {\r\n            this.selectionItems.add(selectionItem);\r\n            selectionItem.propertyAccessors.add(this);\r\n        },\r\n        applyCallbacks: function() {\r\n            this.selectionItems.forEach(function(selectionItem) {\r\n                selectionItem.callback();\r\n            });\r\n        },\r\n        recalculate: function() {\r\n            console.log('should recalculate');\r\n\r\n            var selectionItems = [];\r\n            this.selectionItems.forEach(function(selectionItem) {\r\n                selectionItems.push(selectionItem);\r\n            });\r\n\r\n            selectionItems.forEach(function(selectionItem) {\r\n                selectionItem.removeListeners();\r\n            });\r\n            selectionItems.forEach(function(selectionItem) {\r\n                selectionItem.installListeners();\r\n            });\r\n        }\r\n    });\r\n\r\n    PropertyAccessor.accessors = new Map();\r\n    PropertyAccessor.wrapProperties = function(obj, propName) {\r\n        var mapObj;\r\n        if(PropertyAccessor.accessors.has(obj)) {\r\n            mapObj = PropertyAccessor.accessors.get(obj);\r\n        } else {\r\n            mapObj = {};\r\n            PropertyAccessor.accessors.set(obj, mapObj);\r\n        }\r\n\r\n        if(!mapObj.hasOwnProperty(propName)) {\r\n            mapObj[propName] = new PropertyAccessor(obj, propName);\r\n        }\r\n\r\n        return mapObj[propName];\r\n    };\r\n\r\n    users.timfelgentreff.jsinterpreter.InterpreterVisitor.subclass('SelectionInterpreterVisitor', {\r\n\r\n        visitGetSlot: function($super, node) {\r\n\r\n            var obj = this.visit(node.obj),\r\n                propName = this.visit(node.slotName);\r\n\r\n            PropertyAccessor\r\n                .wrapProperties(obj, propName)\r\n                .addCallback(View.current());\r\n\r\n            return $super(node);\r\n        },\r\n\r\n        shouldInterpret: function(frame, fn) {\r\n            if (this.isNative(fn)) return false;\r\n            return typeof(fn.forInterpretation) == 'function';\r\n        }\r\n    });\r\n ",
+      "start": 902,
+      "end": 4398,
+      "loc": {
+        "start": {
+          "line": 24,
+          "column": 63
+        },
+        "end": {
+          "line": 123,
+          "column": 3
+        }
+      }
+    }
+  ]
+}
