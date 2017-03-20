@@ -85,7 +85,7 @@ function getAllASTNodes(filePath, pattern) {
 }
 
 function getResults(spec) {
-    return glob(spec.fullGlob)
+    return glob(spec.globPattern)
         .map(filePath => {
             return new Promise(resolve => {
                 Promise.join(
@@ -95,79 +95,112 @@ function getResults(spec) {
                 );
             });
         });
-        map(function(ast) {
-            return findPattern(node => node.type === "MethodDefinition" &&
-            node.key.type === 'Identifier' &&
-            node.key.name === 'activeWhile', ast);
-        })
-        .map(function(ast) {
-            writeFile('res.ast', JSON.stringify(ast, null, 2));
-            return ast;
-        });
 }
 
 // signals plain
 var SIGNALS_PLAIN = {
     name: "signals plain",
-    fullGlob: "projects/programming-signals-plain/transform/*.template.js"
+    globPattern: "projects/programming-signals-plain/transform/*.template.js"
+};
+
+// signals plain detection
+var SIGNALS_PLAIN_DETECTION = {
+    name: "signals plain detection",
+    globPattern: "projects/programming-signals-plain-detection/transform/*.template.js"
 };
 
 // constraints plain
 var CONSTRAINTS_PLAIN = {
     name: "constraints plain",
-    fullGlob: "projects/programming-constraints-plain/{cassowary,babel-plugin-cassowary-transform}.js"
+    globPattern: "projects/programming-constraints-plain/{cassowary,babel-plugin-cassowary-transform}.js"
+};
+
+// constraints plain detection
+var CONSTRAINTS_PLAIN_DETECTION = {
+    name: "constraints plain detection",
+    globPattern: "projects/programming-constraints-plain-detection/{cassowary,babel-plugin-cassowary-transform}.js"
 };
 
 // roq plain
 var ROQ_PLAIN = {
     name: "roq plain",
-    fullGlob: "projects/programming-roq-plain/src/**/*.js"
+    globPattern: "projects/programming-roq-plain/src/**/*.js"
+};
+
+// roq plain reaction
+var ROQ_PLAIN_REACTION = {
+    name: "roq plain reaction",
+    globPattern: "projects/programming-roq-plain-reaction/src/**/*.js"
 };
 
 // ila plain
 var ILA_PLAIN = {
     name: "ila plain",
-    fullGlob: "projects/programming-contextjs-plain/src/Layers.js"
+    globPattern: "projects/programming-contextjs-plain/src/Layers.js"
 };
 
 // signals aexpr
 var SIGNALS_AEXPR = {
     name: "signals aexpr",
-    fullGlob: "projects/programming-signals-aexpr/transform/*.extracted.js"
+    globPattern: "projects/programming-signals-aexpr/transform/*.extracted.js"
+};
+
+// signals aexpr detection
+var SIGNALS_AEXPR_DETECTION = {
+    name: "signals aexpr detection",
+    globPattern: "projects/programming-signals-aexpr-detection/transform/*.extracted.js"
 };
 
 // constraint aexpr
 var CONSTRAINTS_AEXPR = {
     name: "constraints aexpr",
-    fullGlob: "projects/babel-plugin-always-constraint/index.js"
+    globPattern: "projects/babel-plugin-always-constraint/index.js"
+};
+
+// constraint aexpr
+var CONSTRAINTS_AEXPR_DETECTION = {
+    name: "constraints aexpr detection",
+    globPattern: "projects/babel-plugin-always-constraint-detection/index.js"
 };
 
 // roq aexpr
 var ROQ_AEXPR = {
     name: "roq aexpr",
-    fullGlob: "projects/reactive-object-queries/src/*.js"
+    globPattern: "projects/reactive-object-queries/src/*.js"
+};
+
+// roq aexpr
+var ROQ_AEXPR_REACTION = {
+    name: "roq aexpr reaction",
+    globPattern: "projects/reactive-object-queries-reaction/src/*.js"
 };
 
 // ila aexpr
 var ILA_AEXPR = {
     name: "ila aexpr",
-    fullGlob: "projects/programming-contextjs-aexpr/src/Layers.js"
+    globPattern: "projects/programming-contextjs-aexpr/src/Layers.js"
 };
 
 // ila aexpr
 var CONTEXTJS = {
     name: "ContextJS",
-    fullGlob: "projects/ContextJS/src/Layers.js"
+    globPattern: "projects/ContextJS/src/Layers.js"
 };
 
 Promise.resolve([
     SIGNALS_PLAIN,
+    SIGNALS_PLAIN_DETECTION,
     CONSTRAINTS_PLAIN,
+    CONSTRAINTS_PLAIN_DETECTION,
     ROQ_PLAIN,
+    ROQ_PLAIN_REACTION,
     ILA_PLAIN,
     SIGNALS_AEXPR,
+    SIGNALS_AEXPR_DETECTION,
     CONSTRAINTS_AEXPR,
+    CONSTRAINTS_AEXPR_DETECTION,
     ROQ_AEXPR,
+    ROQ_AEXPR_REACTION,
     ILA_AEXPR,
     CONTEXTJS
 ])
