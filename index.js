@@ -169,7 +169,7 @@ var ROQ_AEXPR = {
     globPattern: "projects/reactive-object-queries/src/*.js"
 };
 
-// roq aexpr
+// roq aexpr reaction
 var ROQ_AEXPR_REACTION = {
     name: "roq aexpr reaction",
     globPattern: "projects/reactive-object-queries-reaction/src/*.js"
@@ -179,6 +179,12 @@ var ROQ_AEXPR_REACTION = {
 var ILA_AEXPR = {
     name: "ila aexpr",
     globPattern: "projects/programming-contextjs-aexpr/src/Layers.js"
+};
+
+// ila aexpr reaction
+var ILA_AEXPR_REACTION = {
+    name: "ila aexpr reaction",
+    globPattern: "projects/programming-contextjs-aexpr-reaction/src/Layers.js"
 };
 
 // ila aexpr
@@ -202,6 +208,7 @@ Promise.resolve([
     ROQ_AEXPR,
     ROQ_AEXPR_REACTION,
     ILA_AEXPR,
+    ILA_AEXPR_REACTION,
     CONTEXTJS
 ])
     .map(spec => {

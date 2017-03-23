@@ -25,6 +25,8 @@
  * Private Helpers for Development
  */
 
+import trigger from 'aexpr-trigger';
+
 export const Config = {};
 Config.ignoreDeprecatedProceed = true;
 
@@ -579,7 +581,14 @@ export class Layer {
     const partialLayer = ensurePartialLayer(this, object);
     partialLayer.reinstall();
   }
-  
+
+  // Implicit layer activation
+  activeWhile() {
+    () => this.beGlobal();
+    () => this.beNotGlobal();
+    return this;
+  }
+
   // Layer activation
   beGlobal () {
     enableLayer(this);
@@ -605,7 +614,7 @@ export class Layer {
     return GlobalLayers.indexOf(this) !== -1;
   }
   isActive() {
-      return this.isGlobal();
+    return this.isGlobal();
   }
 
   // Debugging
